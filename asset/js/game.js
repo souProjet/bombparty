@@ -4,7 +4,8 @@ let play = document.querySelector('.play');
 let lobby = document.querySelector('.lobby');
 let cover_animation = document.querySelector('.cover-animation');
 let text_cover_animation = document.querySelector('.text-cover-animation');
-
+let game = document.querySelector('.game');
+let players = document.querySelector('.players');
 window.addEventListener('load', function() {
     document.body.style.opacity = "1";
     if (!localStorage.getItem("pseudo")) {
@@ -15,7 +16,7 @@ window.addEventListener('load', function() {
 var socket = io();
 
 //pour la prod 
-// lobby.style.display = "none";
+//lobby.style.display = "none";
 // ranking.style.display = "flex"
 
 // if (localStorage.getItem("gamestate") == 1) {
@@ -69,38 +70,49 @@ socket.on('roomUsers', ({ users, canBegin }) => {
 
 play.addEventListener('click', function() {
     if (hote) {
-        action("metainfo-" + localStorage.getItem("nbrlife") + "-" + localStorage.getItem("timeforplay"));
-        action("startgame");
+        //action("metainfo-" + localStorage.getItem("nbrlife") + "-" + localStorage.getItem("timeforplay"));
+        socket.emit('startGame', {
+            timeforplay: localStorage.getItem("timeforplay"),
+            nbrlife: localStorage.getItem("nbrlife")
+        });
     } else if (!canBeginState) {
         window.location = "/accueil";
     }
 });
 
 socket.on('message', message => {
-    console.log(message)
-    if (message == "startgame") {
-        localStorage.setItem("gamestate", 1)
-        lobby.style.display = "none";
+    console.log(message);
+});
 
-        text_cover_animation.innerText = "Début de la partie";
+socket.on('startGame', (users, timeforplay, nbrlife) => {
+    localStorage.setItem("gamestate", 1);
+    localStorage.setItem("timeforplay", timeforplay);
+    localStorage.setItem("nbrlife", nbrlife);
+    lobby.style.display = "none";
 
-        cover_animation.classList.add('active');
-        text_cover_animation.classList.add('active');
-        setTimeout(function() {
+    text_cover_animation.innerText = "Début de la partie";
 
-            //afficher le jeu 
+    cover_animation.classList.add('active');
+    text_cover_animation.classList.add('active');
+    setTimeout(function() {
+
+        //afficher le jeu 
+        game.style.display = "flex";
+
+        for (let i = 0; i < users.length; i++) {
+            players.innerHTML += `<div style="background-color: var(--color${Math.floor(Math.random()*3)+1});" class="player">${users[i].username == username ? "Moi" : users[i].username}</div>`;
+        }
 
 
 
+        cover_animation.classList.remove('active');
+        text_cover_animation.classList.remove('active');
+    }, 1000)
 
-            cover_animation.classList.remove('active');
-            text_cover_animation.classList.remove('active');
-        }, 1000)
+});
 
-
-    } else if (message == "disconnectAll") {
-        window.location = "/accueil";
-    }
+socket.on('disconnectAll', () => {
+    window.location = "/accueil";
 });
 
 function verifyapparencebutton() {
@@ -114,8 +126,4 @@ function verifyapparencebutton() {
     } else {
         previous_arrow.style.display = "none";
     }
-}
-
-function action(message) {
-    socket.emit('action', message);
 }
