@@ -1,0 +1,121 @@
+.container {
+    position: absolute;
+    width: 100%;
+}
+
+.input-pseudo,
+.continuer {
+    position: absolute;
+    font-family: "Jellee Roman";
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    border: solid 2px black;
+    position: absolute;
+    transform: skew(-15deg);
+    padding: 10px;
+    box-shadow: inset -7px -5px 0 0 rgb(0 0 0 / 35%), inset 0 1px 0 0 hsl(0deg 0% 100% / 20%);
+    background-color: var(--color3opacity);
+    outline: none;
+    transition: all .3s linear;
+}
+
+.input-pseudo::placeholder {
+    color: white;
+}
+
+.continuer {
+    background-color: var(--color5opacity) !important;
+    cursor: pointer;
+}
+
+.continuer:hover {
+    transform: scale(1.03) skew(-15deg);
+    transition: all .3s linear;
+}
+
+.continuer:active {
+    box-shadow: inset -4px -2px 0 0 rgb(0 0 0 / 35%), inset 0 1px 0 0 hsl(0deg 0% 100% / 20%);
+}
+
+.title,
+.error {
+    position: absolute;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    width: 100%;
+    top: 62%;
+    font-size: 20px;
+}
+
+@media(min-width:1025px) {
+    .container {
+        top: 25%;
+        height: 50%;
+    }
+    .input-pseudo {
+        top: 45%;
+        left: 30%;
+        height: 45px;
+        width: 25%;
+    }
+    .continuer {
+        height: 70px;
+        top: 45%;
+        width: 12%;
+        left: 57%;
+    }
+    .title {
+        width: 50%;
+        left: 25%;
+        top: 5%;
+        font-size: 50px;
+    }
+}
+
+@media (max-width:1024px) {
+    .container {
+        height: 100%;
+    }
+    .input-pseudo {
+        height: 45px;
+        width: 80%;
+        left: 10%;
+        top: 200px;
+    }
+    .continuer {
+        height: 70px;
+        width: 40%;
+        left: 30%;
+        top: 300px;
+    }
+    .title {
+        width: 100%;
+        left: 0;
+        top: 10%;
+        font-size: 39px;
+    }
+    .error {
+        top: 55%;
+    }
+}
+
+@media (max-width:1340px) {
+    .input-pseudo,
+    .continuer {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width:375px) {
+    .input-pseudo,
+    .continuer {
+        font-size: 18px !important;
+    }
+    .title {
+        font-size: 30px;
+    }
+}

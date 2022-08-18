@@ -1,0 +1,339 @@
+.container {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    transition: opacity .3s ease;
+}
+
+.create-container {
+    position: absolute;
+    z-index: 2;
+    transform: skew(-5deg) translateY(-120%);
+    box-shadow: inset -7px -5px 0 0 rgb(0 0 0 / 35%), inset 0 1px 0 0 hsl(0deg 0% 100% / 20%);
+    border: solid 2px black;
+    background-color: var(--color2);
+    transition: all .3s ease;
+}
+
+.create-container.active {
+    transform: skew(-5deg) translateY(0);
+    transition: all .3s ease;
+}
+
+.input-code,
+.join,
+.create,
+.input-timeforplay,
+.input-nbrround,
+.startgame,
+.idgame,
+.sharelink {
+    position: absolute;
+    font-family: "Jellee Roman";
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    border: solid 2px black;
+    position: absolute;
+    transform: skew(-15deg);
+    padding: 10px;
+    box-shadow: inset -7px -5px 0 0 rgb(0 0 0 / 35%), inset 0 1px 0 0 hsl(0deg 0% 100% / 20%);
+    outline: none;
+    transition: all .3s linear;
+}
+
+.input-code {
+    background-color: var(--color3opacity);
+    text-transform: uppercase;
+}
+
+.input-code::placeholder {
+    color: white;
+}
+
+.join {
+    background-color: var(--color5opacity);
+    cursor: pointer;
+}
+
+.join:hover,
+.create:hover,
+.startgame:hover {
+    transform: scale(1.03) skew(-15deg);
+    transition: all .3s linear;
+}
+
+.join:active,
+.create:active,
+.startgame:active {
+    box-shadow: inset -4px -2px 0 0 rgb(0 0 0 / 35%), inset 0 1px 0 0 hsl(0deg 0% 100% / 20%);
+    transition: all .3s linear;
+}
+
+.create {
+    background-color: var(--color1opacity);
+    cursor: pointer;
+}
+
+.title,
+.error,
+.error-create {
+    position: absolute;
+    text-align: center;
+}
+
+.error,
+.error-create {
+    color: red;
+    width: 100%;
+    top: 15%;
+    font-size: 20px;
+}
+
+.error-create {
+    top: 78% !important;
+}
+
+.close {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 2.5%;
+    right: 5%;
+    cursor: pointer;
+    filter: drop-shadow(2px 4px 8px #585858);
+    transition: all .3s linear;
+}
+
+.close:hover {
+    transform: scale(1.05) rotate(2deg);
+    transition: all .3s linear;
+}
+
+.close:active {
+    transform: scale(1.05) rotate(30deg);
+    transition: all .3s linear;
+}
+
+.label-timeforplay,
+.label-nbrround,
+.label-idgame,
+.label-sharelink {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.label-timeforplay {
+    top: 14%;
+}
+
+.label-nbrround {
+    top: 30%;
+}
+
+.label-idgame {
+    top: 46%;
+}
+
+.label-sharelink {
+    top: 60%;
+}
+
+.input-timeforplay {
+    background-color: var(--color3opacity);
+    width: 80%;
+    left: 10%;
+    height: 7%;
+    font-size: 30px;
+    top: 20%;
+}
+
+.input-nbrround {
+    background-color: var(--color5opacity);
+    width: 80%;
+    left: 10%;
+    height: 7%;
+    font-size: 30px;
+    top: 36%;
+}
+
+.idgame {
+    background-color: var(--color2opacity);
+    width: 80%;
+    left: 10%;
+    height: 5%;
+    font-size: 30px;
+    top: 50%;
+}
+
+.startgame {
+    background-color: var(--color1opacity);
+    width: 80%;
+    left: 10%;
+    height: 10%;
+    font-size: 30px;
+    bottom: 5%;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.sharelink {
+    background-color: var(--color4opacity);
+    width: 80%;
+    left: 10%;
+    height: 10%;
+    font-size: 20px;
+    top: 67%;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+@media(min-width:1025px) {
+    .container {
+        top: 25%;
+        height: 50%;
+    }
+    .create-container {
+        width: 30%;
+        left: 35%;
+        height: 80%;
+        top: 10%;
+    }
+    .input-code {
+        top: 27%;
+        left: 30%;
+        height: 10%;
+        width: 25%;
+    }
+    .join {
+        height: 15%;
+        top: 27%;
+        width: 12%;
+        left: 57%;
+    }
+    .title {
+        width: 50%;
+        left: 25%;
+        top: -5%;
+        font-size: 50px;
+    }
+    .create {
+        width: 39%;
+        left: 30%;
+        height: 15%;
+        top: 45%;
+    }
+}
+
+@media (max-width:1024px) {
+    .container {
+        height: 100%;
+    }
+    .create-container {
+        width: 80%;
+        left: 10%;
+        height: 550px;
+        top: 50px;
+    }
+    .input-code {
+        height: 45px;
+        width: 80%;
+        left: 10%;
+        top: 150px;
+    }
+    .join {
+        height: 70px;
+        width: 40%;
+        left: 30%;
+        top: 240px;
+    }
+    .title {
+        width: 100%;
+        left: 0;
+        top: 10%;
+        font-size: 39px;
+    }
+    .error {
+        top: 22%;
+    }
+    .create {
+        width: 80%;
+        left: 10%;
+        height: 70px;
+        top: 330px;
+    }
+    .label-timeforplay {
+        top: 70px;
+    }
+    .label-nbrround {
+        top: 155px;
+    }
+    .label-idgame {
+        top: 235px;
+    }
+    .input-timeforplay {
+        height: 30px;
+        top: 115px;
+    }
+    .input-nbrround {
+        height: 30px;
+        top: 195px;
+    }
+    .idgame {
+        height: 30px;
+        top: 260px;
+    }
+    .sharelink {
+        height: 50px;
+        top: 390px;
+    }
+}
+
+@media (max-width:1340px) {
+    .input-code,
+    .join,
+    .startgame {
+        font-size: 18px !important;
+    }
+    .sharelink {
+        font-size: 15px !important;
+    }
+    .label-sharelink {
+        top: 62% !important;
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 1340px) and (min-width:1024px) {
+    .create-container {
+        width: 50%;
+        left: 25%;
+        height: 80%;
+        top: 10%;
+    }
+}
+
+@media (max-width:375px) {
+    .input-code,
+    .join,
+    .create,
+    .startgame {
+        font-size: 18px !important;
+    }
+    .label-sharelink {
+        top: 62% !important;
+        font-size: 15px !important;
+    }
+    .title {
+        font-size: 30px;
+    }
+    .sharelink {
+        font-size: 10px !important;
+    }
+}

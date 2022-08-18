@@ -1,0 +1,40 @@
+:root {
+    --color1: #043259;
+    --color2: #034C8C;
+    --color3: #22CCF2;
+    --color4: #91D7F2;
+    --color5: #38F2F2;
+    --color1opacity: rgba(4, 50, 89, .5);
+    --color2opacity: rgba(3, 76, 140, .5);
+    --color3opacity: rgba(34, 204, 242, .5);
+    --color4opacity: rgba(145, 215, 242, .5);
+    --color5opacity: rgba(56, 242, 242, .5);
+    --red: #E8604B;
+}
+
+@font-face {
+    font-family: "Penbox";
+    src: url("../font/penbox.otf");
+}
+
+@font-face {
+    font-family: "Jellee Roman";
+    src: url("../font/jellee-roman.otf");
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color4);
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    font-family: "Penbox";
+    transition: opacity .1s ease;
+}

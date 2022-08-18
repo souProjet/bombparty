@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNCITY</title>
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/accueil.css">
+    <link rel="shortcut icon" href="https://creatorlab.art/public/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="create-container">
+        <img src="./asset/image/redcross.png" alt="Fermer" class="close">
+        <h3 class="label-timeforplay">Temps pour répondre :</h3>
+        <input type="time" value="01:00" min="00:30" max="05:00" class="input-timeforplay">
+        <h3 class="label-nbrround">Nombre de vie</h3>
+        <input type="number" value="3" min="2" max="10" class="input-nbrround">
+        <h3 class="label-idgame">Code de la partie :</h3>
+        <h1 class="idgame">D5E8</h1>
+        <h3 class="label-sharelink">Cliquer pour copier le lien de partage :</h3>
+        <button class="sharelink"></button>
+        <p class="error-create"></p>
+        <button class="startgame">LANCER LA PARTIE</button>
+    </div>
+    <div class="container">
+        <h1 class="title">F U N C I T Y</h1>
+        <input type="text" class="input-code" placeholder="ENTREZ UN CODE : BX7E" autofocus>
+        <button class="join">REJOINDRE</button>
+        <button class="create">CRÉER UNE PARTIE</button>
+        <p class="error"></p>
+    </div>
+
+    <script src="./asset/js/accueil.js"></script>
+</body>
+
+</html>
