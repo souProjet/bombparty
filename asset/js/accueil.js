@@ -9,11 +9,11 @@ let error = document.querySelector('.error')
 
 let startgame = document.querySelector('.startgame');
 let input_timeforplay = document.querySelector('.input-timeforplay');
-let input_nbrround = document.querySelector('.input-nbrround');;
+let input_nbrlife = document.querySelector('.input-nbrlife');;
 let idgame = document.querySelector('.idgame');
 let error_create = document.querySelector('.error-create');
 
-localStorage.removeItem("nbrround");
+localStorage.removeItem("nbrlife");
 localStorage.removeItem("timeforplay");
 localStorage.removeItem("gamestate");
 localStorage.removeItem("idgame");
@@ -84,30 +84,36 @@ window.addEventListener('load', function() {
     }
 })
 
+input_timeforplay.addEventListener('input', function() {
+    document.querySelector('.label-timeforplay').innerHTML = "Temps pour répondre (" + input_timeforplay.value + "s) :";
+});
+input_nbrlife.addEventListener('input', function() {
+    document.querySelector('.label-nbrlife').innerHTML = "Nombre de vie (" + input_nbrlife.value + ") :";
+});
+
 startgame.addEventListener('click', function() {
     let msgerror;
-    let timeforplay_minute = parseInt(input_timeforplay.value.split(":")[0]);
-    let timeforplay_second = parseInt(input_timeforplay.value.split(":")[1]);
+    let timeforplay = parseInt(input_timeforplay.value);
     if (input_timeforplay.value != "") {
-        if (!(timeforplay_minute <= 0 && timeforplay_second <= 30)) {
-            if (!(timeforplay_minute >= 5 && timeforplay_second > 0)) {
-                if (input_nbrround.value >= 1) {
-                    if (input_nbrround.value <= 15) {
+        if (timeforplay >= 2) {
+            if (timeforplay <= 15) {
+                if (parseInt(input_nbrlife.value) >= 2) {
+                    if (parseInt(input_nbrlife.value) <= 10) {
                         localStorage.setItem('idgame', idgame.innerText);
                         localStorage.setItem('timeforplay', input_timeforplay.value);
-                        localStorage.setItem('nbrround', input_nbrround.value);
+                        localStorage.setItem('nbrlife', input_nbrlife.value);
                         window.location.href = "/game";
                     } else {
-                        msgerror = "Le nombre de manche maximum est 15";
+                        msgerror = "Le nombre de vie maximum est 10";
                     }
                 } else {
-                    msgerror = "Le nombre de manche minimum est 1";
+                    msgerror = "Le nombre de vie minimum est 2";
                 }
             } else {
-                msgerror = "Le temps maximum pour jouer est de 5 minutes"
+                msgerror = "Le temps maximum pour jouer est de 15 secondes";
             }
         } else {
-            msgerror = "Le temps minimum pour jouer est de 30 secondes";
+            msgerror = "Le temps minimum pour jouer est de 2 secondes";
         }
     } else {
         msgerror = "Veuillez rentrer un temps pour jouer"

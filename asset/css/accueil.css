@@ -24,7 +24,7 @@
 .join,
 .create,
 .input-timeforplay,
-.input-nbrround,
+.input-nbrlife,
 .startgame,
 .idgame,
 .sharelink {
@@ -40,6 +40,117 @@
     box-shadow: inset -7px -5px 0 0 rgb(0 0 0 / 35%), inset 0 1px 0 0 hsl(0deg 0% 100% / 20%);
     outline: none;
     transition: all .3s linear;
+}
+
+.input-timeforplay,
+.input-nbrlife {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.input-timeforplay:focus,
+.input-nbrlife:focus {
+    outline: none;
+}
+
+.input-timeforplay::-webkit-slider-runnable-track,
+.input-nbrlife::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.input-timeforplay::-webkit-slider-thumb,
+.input-nbrlife::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+}
+
+.input-timeforplay:focus::-webkit-slider-runnable-track,
+.input-nbrlife:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+}
+
+.input-timeforplay::-moz-range-track,
+.input-nbrlife::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.input-timeforplay::-moz-range-thumb,
+.input-nbrlife::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.input-timeforplay::-ms-track,
+.input-nbrlife::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+
+.input-timeforplay::-ms-fill-lower,
+.input-nbrlife::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.input-timeforplay::-ms-fill-upper,
+.input-nbrlife::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+.input-timeforplay::-ms-thumb,
+.input-nbrlife::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.input-timeforplay:focus::-ms-fill-lower,
+.input-nbrlife:focus::-ms-fill-lower {
+    background: #3071a9;
+}
+
+.input-timeforplay:focus::-ms-fill-upper,
+.input-nbrlife:focus::-ms-fill-upper {
+    background: #367ebd;
 }
 
 .input-code {
@@ -116,7 +227,7 @@
 }
 
 .label-timeforplay,
-.label-nbrround,
+.label-nbrlife,
 .label-idgame,
 .label-sharelink {
     position: absolute;
@@ -129,7 +240,7 @@
     top: 14%;
 }
 
-.label-nbrround {
+.label-nbrlife {
     top: 30%;
 }
 
@@ -147,16 +258,16 @@
     left: 10%;
     height: 7%;
     font-size: 30px;
-    top: 20%;
+    top: 18%;
 }
 
-.input-nbrround {
+.input-nbrlife {
     background-color: var(--color5opacity);
     width: 80%;
     left: 10%;
     height: 7%;
     font-size: 30px;
-    top: 36%;
+    top: 34%;
 }
 
 .idgame {
@@ -238,20 +349,20 @@ input[type=number]::-webkit-inner-spin-button {
     .create-container {
         width: 80%;
         left: 10%;
-        height: 550px;
+        height: 600px;
         top: 50px;
     }
     .input-code {
         height: 45px;
         width: 80%;
         left: 10%;
-        top: 150px;
+        top: 200px;
     }
     .join {
         height: 70px;
         width: 40%;
         left: 30%;
-        top: 240px;
+        top: 300px;
     }
     .title {
         width: 100%;
@@ -266,32 +377,32 @@ input[type=number]::-webkit-inner-spin-button {
         width: 80%;
         left: 10%;
         height: 70px;
-        top: 330px;
+        top: 400px;
     }
     .label-timeforplay {
         top: 70px;
     }
-    .label-nbrround {
-        top: 155px;
+    .label-nbrlife {
+        top: 180px;
     }
     .label-idgame {
-        top: 235px;
+        top: 270px;
     }
     .input-timeforplay {
         height: 30px;
-        top: 115px;
+        top: 110px;
     }
-    .input-nbrround {
+    .input-nbrlife {
         height: 30px;
-        top: 195px;
+        top: 210px;
     }
     .idgame {
         height: 30px;
-        top: 260px;
+        top: 300px;
     }
     .sharelink {
         height: 50px;
-        top: 390px;
+        top: 420px;
     }
 }
 
